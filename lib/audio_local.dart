@@ -1,4 +1,5 @@
 import 'package:MV_Player/audio_online.dart';
+import 'package:MV_Player/audio_player.dart';
 import 'package:MV_Player/home.dart';
 import 'package:flutter/material.dart';
 
@@ -8,18 +9,43 @@ class AudioLocal extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: ClipOval(
+              child: Image(
+                image: AssetImage('images/logo.png'),
+              ),
+            ),
+          ),
           title: Text('MV Player'),
+          backgroundColor: Colors.black45,
         ),
         body: Container(
           width: MediaQuery.of(context).size.width * 1.0,
           height: MediaQuery.of(context).size.height * 1.0,
           color: Colors.lightBlue.shade50,
           child: ListView(
-            padding: const EdgeInsets.all(8),
             children: <Widget>[
               Container(
-                height: 50,
-                color: Colors.amber[600],
+                height: MediaQuery.of(context).size.width * 0.14,
+                margin: EdgeInsets.fromLTRB(10, 8, 10, 6),
+                color: Colors.blue[800],
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AudioPlayer(),
+                      ),
+                    );
+                  },
+                  child: Text('avhasgvkh'),
+                ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.width * 0.14,
+                margin: EdgeInsets.fromLTRB(10, 6, 10, 6),
+                color: Colors.blue[800],
                 child: const Center(child: Text('Audio Local')),
               ),
             ],
@@ -38,9 +64,10 @@ class AudioLocal extends StatelessWidget {
                   color: Colors.transparent,
                   child: FlatButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.push(
+                        context,
                         MaterialPageRoute(
-                          builder: (BuildContext context) => HomeScreen(),
+                          builder: (context) => HomeScreen(),
                         ),
                       );
                     },

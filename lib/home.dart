@@ -7,7 +7,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: ClipOval(
+            child: Image(
+              image: AssetImage('images/logo.png'),
+            ),
+          ),
+        ),
         title: Text('MV Player'),
+        backgroundColor: Colors.black45,
       ),
       body: Center(
         child: Container(
